@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Organizador da Fernanda</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Lucide Icons (Ícones) -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- Fundo Tridimensional com Elementos 3D Flutuantes -->
+  <div class="bg-3d-container">
+    <div class="cube cube-1"></div>
+    <div class="cube cube-2"></div>
+    <div class="sphere sphere-1"></div>
+    <div class="torus torus-1"></div>
+    <div class="pyramid pyramid-1"></div>
+  </div>
+
+  <div class="app-wrapper">
+    <!-- Cabeçalho -->
+    <header class="header">
+      <div class="header-badge">Planner Pessoal & Produtividade</div>
+      <h1 class="main-title">Organizador da Fernanda</h1>
+      <p class="header-description">
+        Seu espaço exclusivo para gerenciar tarefas, monitorar hábitos diários e evoluir com rotinas inteligentes. Mantenha o foco e conquiste suas metas diárias de forma leve e visual.
+      </p>
+    </header>
+
+    <!-- Painel do Organizador de Tarefas -->
+    <main class="dashboard-grid">
+      
+      <!-- Coluna: Tarefas e Rotina -->
+      <section class="card glass-panel flex-2">
+        <div class="card-header">
+          <h2><i data-lucide="check-square"></i> Tarefas do Dia</h2>
+          <span class="badge" id="task-counter">0/0 Concluídas</span>
+        </div>
+
+        <form id="add-task-form" class="input-group">
+          <input type="text" id="task-input" placeholder="Nova tarefa ou rotina..." required>
+          <select id="task-category">
+            <option value="Rotina">Rotina</option>
+            <option value="Trabalho">Trabalho</option>
+            <option value="Estudo">Estudo</option>
+            <option value="Saúde">Saúde</option>
+          </select>
+          <button type="submit" class="btn-primary"><i data-lucide="plus"></i></button>
+        </form>
+
+        <ul class="task-list" id="task-list">
+          <li class="task-item completed">
+            <label class="checkbox-container">
+              <input type="checkbox" checked>
+              <span class="checkmark"></span>
+              <span class="task-text">Meditação e Alongamento Matinal</span>
+            </label>
+            <span class="tag tag-saude">Saúde</span>
+          </li>
+          <li class="task-item">
+            <label class="checkbox-container">
+              <input type="checkbox">
+              <span class="checkmark"></span>
+              <span class="task-text">Revisar planejamento semanal</span>
+            </label>
+            <span class="tag tag-trabalho">Trabalho</span>
+          </li>
+          <li class="task-item">
+            <label class="checkbox-container">
+              <input type="checkbox">
+              <span class="checkmark"></span>
+              <span class="task-text">Beber 2L de água até às 18h</span>
+            </label>
+            <span class="tag tag-rotina">Rotina</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Coluna: Rastreamento de Hábitos Rápidos -->
+      <section class="card glass-panel flex-1">
+        <div class="card-header">
+          <h2><i data-lucide="flame"></i> Hábitos Diários</h2>
+        </div>
+        <div class="habit-tracker">
+          <div class="habit-item">
+            <span>💧 Hidratação</span>
+            <div class="habit-dots">
+              <span class="dot active"></span>
+              <span class="dot active"></span>
+              <span class="dot active"></span>
+              <span class="dot"></span>
+            </div>
+          </div>
+          <div class="habit-item">
+            <span>📖 Leitura (20min)</span>
+            <div class="habit-dots">
+              <span class="dot active"></span>
+              <span class="dot"></span>
+            </div>
+          </div>
+          <div class="habit-item">
+            <span>🧘 Pausa Menta</span>
+            <div class="habit-dots">
+              <span class="dot active"></span>
+              <span class="dot active"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Seção de Dicas Interativas -->
+    <section class="tips-section">
+      <h2 class="section-title"><i data-lucide="sparkles"></i> Dicas de Gestão & Produtividade</h2>
+      <p class="section-subtitle">Clique nos cards abaixo para visualizar os detalhes e estratégias em destaque.</p>
+
+      <div class="tips-grid">
+        
+        <!-- Card Dica 1 -->
+        <article class="tip-card" onclick="openModal('modal-1')">
+          <div class="tip-icon"><i data-lucide="clock"></i></div>
+          <h3>Técnica Pomodoro</h3>
+          <p>Divida seu tempo em blocos de foco total e pausas estratégicas...</p>
+
+          <template id="data-modal-1">
+            <div class="modal-content-body">
+              <span class="modal-category">Gestão do Tempo</span>
+              <h2>Técnica Pomodoro de Foco</h2>
+              <p>A técnica Pomodoro consiste em focar 100% em uma única tarefa por <strong>25 minutos</strong> sem interrupções, seguido por uma <strong>pausa curta de 5 minutos</strong>.</p>
+              <ul>
+                <li><strong>Passo 1:</strong> Escolha uma tarefa da sua lista.</li>
+                <li><strong>Passo 2:</strong> Ajuste o timer para 25 minutos.</li>
+                <li><strong>Passo 3:</strong> Trabalhe até o timer tocar.</li>
+                <li><strong>Passo 4:</strong> Faça uma pausa de 5 min (alongue-se ou beba água).</li>
+                <li><strong>Passo 5:</strong> A cada 4 ciclos, faça uma pausa maior de 15 a 30 min.</li>
+              </ul>
+            </div>
+          </template>
+        </article>
+
+        <!-- Card Dica 2 -->
+        <article class="tip-card" onclick="openModal('modal-2')">
+          <div class="tip-icon"><i data-lucide="layers"></i></div>
+          <h3>Matriz de Eisenhower</h3>
+          <p>Aprenda a priorizar tarefas importantes vs tarefas urgentes...</p>
+
+          <template id="data-modal-2">
+            <div class="modal-content-body">
+              <span class="modal-category">Priorização</span>
+              <h2>Matriz de Eisenhower</h2>
+              <p>Ferramenta essencial para decidir o que fazer agora, o que agendar, o que delegar e o que eliminar da sua rotina.</p>
+              <div class="quadrant-grid">
+                <div class="quadrant q1"><strong>Fazer Agora:</strong> Urgente & Importante</div>
+                <div class="quadrant q2"><strong>Agendar:</strong> Não Urgente & Importante</div>
+                <div class="quadrant q3"><strong>Delegar:</strong> Urgente & Não Importante</div>
+                <div class="quadrant q4"><strong>Eliminar:</strong> Não Urgente & Não Importante</div>
+              </div>
+            </div>
+          </template>
+        </article>
+
+        <!-- Card Dica 3 -->
+        <article class="tip-card" onclick="openModal('modal-3')">
+          <div class="tip-icon"><i data-lucide="moon"></i></div>
+          <h3>Higiene do Sono</h3>
+          <p>Como a qualidade do seu descanso afeta o rendimento do dia seguinte...</p>
+
+          <template id="data-modal-3">
+            <div class="modal-content-body">
+              <span class="modal-category">Bem-Estar</span>
+              <h2>Higiene do Sono & Energia</h2>
+              <p>A produtividade do dia começa na noite anterior. Criar um ritual noturno estabiliza seus níveis de energia.</p>
+              <ul>
+                <li>Desconecte telas (celular e TV) 1 hora antes de dormir.</li>
+                <li>Mantenha o quarto escuro e em temperatura agradável.</li>
+                <li>Evite cafeína após as 15h.</li>
+                <li>Pratique leitura leve ou escute músicas relaxantes antes de deitar.</li>
+              </ul>
+            </div>
+          </template>
+        </article>
+
+      </div>
+    </section>
+  </div>
+
+  <!-- Estrutura do Modal Destaque -->
+  <div id="tip-modal" class="modal-backdrop" onclick="closeModalOnBackdrop(event)">
+    <div class="modal-box">
+      <button class="modal-close-btn" onclick="closeModal()">&times;</button>
+      <div id="modal-container"></div>
+    </div>
+  </div>
+
+  <script>
+    // Inicializa os ícones do Lucide
+    lucide.createIcons();
+
+    // Funções do Modal
+    function openModal(templateId) {
+      const template = document.getElementById('data-' + templateId);
+      const container = document.getElementById('modal-container');
+      const modal = document.getElementById('tip-modal');
+      
+      container.innerHTML = template.innerHTML;
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden'; // Impede rolagem no fundo
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('tip-modal');
+      modal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    function closeModalOnBackdrop(e) {
+      if (e.target.id === 'tip-modal') {
+        closeModal();
+      }
+    }
+
+    // Funcionalidade do formulário de tarefas
+    const taskForm = document.getElementById('add-task-form');
+    const taskInput = document.getElementById('task-input');
+    const taskCategory = document.getElementById('task-category');
+    const taskList = document.getElementById('task-list');
+
+    taskForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const text = taskInput.value.trim();
+      const category = taskCategory.value;
+
+      if (!text) return;
+
+      const li = document.createElement('li');
+      li.className = 'task-item';
+      li.innerHTML = `
+        <label class="checkbox-container">
+          <input type="checkbox">
+          <span class="checkmark"></span>
+          <span class="task-text">${text}</span>
+        </label>
+        <span class="tag tag-${category.toLowerCase()}">${category}</span>
+      `;
+
+      taskList.prepend(li);
+      taskInput.value = '';
+      updateCounter();
+    });
+
+    taskList.addEventListener('change', function(e) {
+      if (e.target.tagName === 'INPUT') {
+        const item = e.target.closest('.task-item');
+        if (e.target.checked) {
+          item.classList.add('completed');
+        } else {
+          item.classList.remove('completed');
+        }
+        updateCounter();
+      }
+    });
+
+    function updateCounter() {
+      const total = taskList.querySelectorAll('li').length;
+      const completed = taskList.querySelectorAll('li.completed').length;
+      document.getElementById('task-counter').innerText = `${completed}/${total} Concluídas`;
+    }
+
+    updateCounter();
+  </script>
+</body>
+</html>
